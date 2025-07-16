@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>خانه | زیبارو</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+    <h1>زیبارو</h1>
+    <p class="slogan">شروع مسیر زیبایی 🌸</p>
+    <nav>
+                <ul>
+                    <li><a href="home.html">خانه</a></li>
+                    <li><a href="index.html">محصولات</a></li>
+                    <li><a herf="cart.html">سبد خرید</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-container">
+            <img src="images/zibaru-banner.jpg" alt="بنر زیبارو" class="hero-image" />
+            <div class="hero-text">
+                <h2>به زیبارو خوش آمدید</h2>
+                <p>فروشگاهی برای محصولات مراقبتی، زیبایی و آرامش ذهنی شما</p>
+                <a href="index.html#products" class="btn">مشاهده محصولات</a>
+            </div>
+        </div>
+    </section>
+    <img id="hero">
+        <div class="hero-container">
+        </div>
+    </img>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("section") === "products") {
+                const target = document.getElementById("products");
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        });
+    </script>
+</main>
+
+<footer>
+    <p>© 2025 فروشگاه زیبارو | صفحه خانه</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>زیبارو | فروشگاه محصولات بهداشتی</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+    <h1>زیبارو</h1>
+    <p class="slogan">با عشق برای زیبایی شما ✨</p>
+    <nav>
+        <ul>
+            <li><a href="home.html">خانه</a></li>
+            <li><a href="#products">محصولات</a></li>
+            <li><a href="cart.html">سبد خرید</a></li>
+            <li><a href="contact.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- 🔍 نوار جست‌وجو -->
+    <section id="search-bar">
+        <input type="text" id="searchInput" placeholder="جست‌وجوی محصول..." />
+    </section>
+
+    <!-- 🛍️ لیست محصولات -->
+    <section id="products">
+        <h2>محصولات ما</h2>
+        <div class="product-list">
+
+            <div class="product-card">
+                <h3>شامپو آبرسان MND</h3>
+                <p>مناسب موهای خشک</p>
+                <img src="images/product1.jpg" alt="شامپو آبرسان" />
+                <span class="price">269000</span>
+                <button class="add-to-cart">افزودن به سبد</button>
+                <label class="desc-label">توضیحات محصول </label>
+                <p class="product-desc" > شامپو آبرسان MND:
+                    لطافت و آرامش برای موهای خشک 
+                    با گذر زمان، عوامل ژنتیکی،
+                    افزایش سن و شست‌وشوی مکرر، تولید چربی طبیعی در کف سر کاهش پیدا می‌کنه و باعث وز شدن مو، التهاب و خشکی میشه. 
+                    شامپو تخصصی MND با فرمولی فاقد سولفات، پارابن و نمک و سرشار از ترکیبات آبرسان، 
+                    :droplet: رطوبت از دست‌رفته رو بازیابی می‌کنه، 
+                    🌬 وز موها رو کاهش می‌ده، 
+                    :herb: و التیام‌بخش پوست سر خشک و حساسه. 
+
+                    اگر موهات نیاز به نرمی، تغذیه و مراقبت داره، 
+                    :dart: این شامپو با قدرتی لطیف و مؤثر کنارش وایساده!
+                </p>
+            </div>
+
+            <div class="product-card">
+                <h3>سرم روشن‌کننده پوست</h3>
+                <p>ضدلک و افزایش شفافیت</p>
+                <img src="images/product2.jpg" alt="سرم روشن‌کننده" />
+                <span class="price">269000</span>
+                <button class="add-to-cart">افزودن به سبد</button>
+                <label class="desc-label">توضیحات محصول </label>
+                <p class="product-desc" > شامپو پوست سر چرب MND؛ تعادل چربی و آرامش پوست سر
+                    فعالیت زیاد غدد چربی در کف سر می‌تونه باعث چربی زودهنگام، احساس سنگینی، ریزش مو و رشد باکتری‌های مضر بشه.
+                    شامپوی MND با فرمولی فاقد پارابن، سولفات و نمک،
+                    :herb: چربی اضافه رو کنترل می‌کنه،
+                    🧘 فعالیت باکتری‌ها رو متعادل می‌سازه،
+                    :droplet: و به حفظ سلامت و طراوت پوست سر کمک می‌کنه.
+
+                    برای افرادی با پوست سر چرب، این شامپو یه انتخاب مطمئن و موثره!
+                </p>
+            </div>
+
+            <div class="product-card">
+                <h3>شامپو ضد ریزش مو</h3>
+                <p>تقویت مو و کاهش ریزش</p>
+                <img src="images/product3.jpg" alt="شامپو ضد ریزش" />
+                <span class="price">89000</span>
+                <button class="add-to-cart">افزودن به سبد</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 🧮 سبد خرید -->
+    <section id="cart-summary">
+        <h2>سبد خرید شما</h2>
+        <p>تعداد محصولات: <span id="cart-count">0</span></p>
+        <p>مجموع قیمت: <span id="cart-total">0</span> تومان</p>
+    </section>
+
+
+        <div class="social-contact">
+            <p>ما را در روبیکا دنبال کنید:</p>
+            <a href="https://rubika.ir/onlineshopzibaru" target="_blank" class="rubika-button">📲 کانال روبیکا</a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2025 فروشگاه زیبارو | طراحی‌شده با عشق</p>
+</footer>
+
+<!-- ⚙️ کد جاوااسکریپت -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // جست‌وجو
+        const searchInput = document.getElementById("searchInput");
+        const products = document.querySelectorAll(".product-card");
+
+        searchInput.addEventListener("input", function () {
+            const value = this.value.toLowerCase();
+            products.forEach(card => {
+                const title = card.querySelector("h3").textContent.toLowerCase();
+                const desc = card.querySelector("p").textContent.toLowerCase();
+                if (title.includes(value) || desc.includes(value)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+
+        // سبد خرید
+        let cartCount = 0;
+        let cartTotal = 0;
+        const cartCountEl = document.getElementById("cart-count");
+        const cartTotalEl = document.getElementById("cart-total");
+
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", () => {
+                const card = button.parentElement;
+                const priceText = card.querySelector(".price").textContent;
+                const price = parseInt(priceText.replace(/[^0-9]/g, ""));
+
+                cartCount += 1;
+                cartTotal += price;
+                cartCountEl.textContent = cartCount;
+                cartTotalEl.textContent = cartTotal.toLocaleString();
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
